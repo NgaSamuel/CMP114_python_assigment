@@ -1,0 +1,96 @@
+class Math:
+    def add(self, x, y):
+        return x + y
+
+    def subtract(self, x, y):
+        return x - y
+
+    def multiply(self, x, y):
+        return x * y
+
+    def divide(self, x, y):
+        if y == 0:
+            raise ValueError("This is not possible")
+        return x / y
+
+    def exponentiate(self, x, y):
+        return x ** y
+
+
+class Physics:
+    def displacement(self, initial_pos, final_pos):
+        return final_pos - initial_pos
+
+    def velocity(self, displacement, time):
+        return displacement / time
+
+    def acceleration(self, initial_velocity, final_velocity, time):
+        return (final_velocity - initial_velocity) / time
+
+    def force(self, mass, acceleration):
+        return mass * acceleration
+
+    def work(self, force, displacement):
+        return force * displacement
+
+
+print("Ready to calculate")
+
+while True:
+    category = input("What  category do you want to operate? (math or physics) ")
+    if category.lower() == "math":
+        calculator = Math()
+        break
+    elif category.lower() == "physics":
+        calculator = Physics()
+        break
+    else:
+        print("This category is not available")
+
+while True:
+    operation = input("what operation do you intend to perform? ")
+    if operation.lower() == "add":
+        x = float(input("Enter the first number: "))
+        y = float(input("Enter the second number: "))
+        result = calculator.add(x, y)
+        break
+    elif operation.lower() == "subtract":
+        x = float(input("Enter the first number: "))
+        y = float(input("Enter the second number: "))
+        result = calculator.subtract(x, y)
+        break
+    elif operation.lower() == "multiply":
+        x = float(input("Enter the first number: "))
+        y = float(input("Enter the second number: "))
+        result = calculator.multiply(x, y)
+        break
+    elif operation.lower() == "divide":
+        x = float(input("Enter the numerator: "))
+        y = float(input("Enter the denominator: "))
+        result = calculator.divide(x, y)
+        break
+    elif operation.lower() == "exponentiate":
+        x = float(input("Enter the base: "))
+        y = float(input("Enter the exponent: "))
+        result = calculator.exponentiate(x, y)
+        break
+    elif operation.lower() == "displacement":
+        initial_pos = float(input("Enter the initial position: "))
+        final_pos = float(input("Enter the final position: "))
+        result = calculator.displacement(initial_pos, final_pos)
+        break
+    elif operation.lower() == "velocity":
+        displacement = float(input("Enter the displacement: "))
+        time = float(input("Enter the time: "))
+        result = calculator.velocity(displacement, time)
+        break
+    elif operation.lower() == "acceleration":
+        initial_velocity = float(input("Enter the initial velocity: "))
+        final_velocity = float(input("Enter the final velocity: "))
+        time = float(input("Enter the time: "))
+        result = calculator.acceleration(initial_velocity, final_velocity, time)
+        break
+    elif operation.lower() == "force":
+        mass = float(input("Enter the mass: "))
+        acceleration = float(input("Enter the acceleration: "))
+        result = calculator.force(mass, acceleration)
